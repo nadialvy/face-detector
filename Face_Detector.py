@@ -1,4 +1,5 @@
 import cv2
+from random import randrange
 
 # Load some pre-trained data on face frontals from opencv (haar cascade algorithm)
 trained_face_data = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
@@ -14,7 +15,7 @@ face_coordinates = trained_face_data.detectMultiScale(gray_img)
  
 # draw rectangle around the face  
 for (x, y, w, h) in face_coordinates:      
-    cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 255), 2)
+    cv2.rectangle(img, (x, y), (x + w, y + h), (randrange(128, 256), randrange(128, 256), randrange(128, 256)), 2)
 
 # print(face_coordinates)
 
